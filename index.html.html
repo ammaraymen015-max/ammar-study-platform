@@ -1,0 +1,2891 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>عمار أيمن | منصة الدراسة</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Tahoma",Arial,sans-serif;
+}
+
+:root{
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --text:#172554;
+    --muted:#64748b;
+    --primary:#4f46e5;
+    --primary2:#7c3aed;
+    --blue:#2563eb;
+    --green:#10b981;
+    --orange:#f97316;
+    --red:#ef4444;
+    --border:#e2e8f0;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    transition:.3s;
+}
+
+body.dark{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --border:#334155;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:75px;
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5%;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:var(--primary);
+}
+
+.nav-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.nav-btn{
+    border:none;
+    background:var(--bg);
+    color:var(--text);
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:19px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#312e81,#4f46e5,#7c3aed);
+    color:white;
+    border-radius:28px;
+    padding:40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 20px 45px #4f46e533;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:#ffffff12;
+    left:-80px;
+    top:-100px;
+}
+
+.hero-text{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    font-size:18px;
+    opacity:.9;
+    margin:7px 0;
+}
+
+.student-avatar{
+    width:125px;
+    height:125px;
+    border-radius:35px;
+    background:#ffffff22;
+    backdrop-filter:blur(10px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+    position:relative;
+    z-index:2;
+}
+
+/* TITLES */
+
+.section{
+    margin-top:35px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+}
+
+.section-title h2{
+    font-size:25px;
+}
+
+.section-title span{
+    color:var(--muted);
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.stat-icon{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.stat-number{
+    font-size:30px;
+    font-weight:bold;
+}
+
+.stat-name{
+    color:var(--muted);
+    margin-top:5px;
+}
+
+/* SUBJECTS */
+
+.subjects{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.subject{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:25px 18px;
+    border-radius:22px;
+    cursor:pointer;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.subject:hover{
+    transform:translateY(-7px);
+    box-shadow:0 15px 35px #00000012;
+}
+
+.subject-icon{
+    width:58px;
+    height:58px;
+    border-radius:17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.arabic .subject-icon{
+    background:#dbeafe;
+}
+
+.english .subject-icon{
+    background:#dcfce7;
+}
+
+.history .subject-icon{
+    background:#fef3c7;
+}
+
+.programming .subject-icon{
+    background:#ede9fe;
+}
+
+.subject h3{
+    font-size:19px;
+    margin-bottom:7px;
+}
+
+.subject p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.subject-progress{
+    margin-top:18px;
+    height:7px;
+    background:var(--border);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.subject-progress div{
+    height:100%;
+    background:linear-gradient(90deg,var(--primary),var(--primary2));
+    width:35%;
+}
+
+/* BOX */
+
+.box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:25px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+/* TASK INPUT */
+
+.add-area{
+    display:flex;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+input[type="text"]{
+    flex:1;
+    border:1px solid var(--border);
+    background:var(--bg);
+    color:var(--text);
+    padding:14px 16px;
+    border-radius:13px;
+    font-size:15px;
+    outline:none;
+}
+
+input[type="text"]:focus{
+    border-color:var(--primary);
+}
+
+.primary-btn{
+    border:none;
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
+    color:white;
+    padding:13px 20px;
+    border-radius:13px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* TASK */
+
+.task{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px;
+    border-radius:14px;
+    background:var(--bg);
+    margin-bottom:9px;
+}
+
+.task input{
+    width:20px;
+    height:20px;
+}
+
+.task span{
+    flex:1;
+}
+
+.task.done span{
+    text-decoration:line-through;
+    color:var(--muted);
+}
+
+.delete{
+    border:none;
+    background:#fee2e2;
+    color:#dc2626;
+    padding:8px 10px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+/* MOTIVATION */
+
+.motivation{
+    background:linear-gradient(135deg,#f97316,#ec4899);
+    color:white;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 15px 35px #f9731633;
+}
+
+.motivation h2{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+#motivationText{
+    font-size:21px;
+    line-height:1.8;
+    min-height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.motivation button{
+    margin-top:15px;
+    border:none;
+    padding:12px 22px;
+    border-radius:12px;
+    background:white;
+    color:#ea580c;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* PROGRESS */
+
+.progress-box{
+    display:grid;
+    grid-template-columns:1fr 220px;
+    gap:25px;
+    align-items:center;
+}
+
+.progress-big{
+    height:18px;
+    background:var(--border);
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.progress-big div{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#10b981,#22c55e);
+    transition:.5s;
+}
+
+.progress-number{
+    font-size:50px;
+    font-weight:bold;
+    color:var(--green);
+    text-align:center;
+}
+
+/* TIMER */
+
+.timer{
+    text-align:center;
+}
+
+.timer-circle{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    margin:20px auto;
+    background:linear-gradient(135deg,#312e81,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    font-weight:bold;
+    box-shadow:0 15px 40px #4f46e544;
+}
+
+.timer-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.timer-buttons button{
+    border:none;
+    padding:12px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* LESSON AREA */
+
+.lesson-area{
+    display:none;
+}
+
+.lesson-area.active{
+    display:block;
+}
+
+.lesson{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    background:var(--bg);
+    border-radius:13px;
+    margin-bottom:9px;
+}
+
+.lesson input{
+    width:20px;
+    height:20px;
+}
+
+.lesson span{
+    flex:1;
+}
+
+.lesson.done span{
+    text-decoration:line-through;
+    color:var(--muted);
+}
+
+.close{
+    border:none;
+    background:var(--bg);
+    color:var(--text);
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* ACHIEVEMENTS */
+
+.achievements{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.achievement{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+}
+
+.achievement-icon{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.achievement.locked{
+    opacity:.45;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+    padding:30px;
+    text-align:center;
+    background:#111827;
+    color:white;
+}
+
+footer p{
+    margin:7px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .subjects{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        gap:20px;
+        padding:30px 20px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .stats,
+    .subjects,
+    .achievements{
+        grid-template-columns:1fr;
+    }
+
+    .progress-box{
+        grid-template-columns:1fr;
+    }
+
+    .add-area{
+        flex-direction:column;
+    }
+
+}
+
+
+/* ===== تحسينات النسخة الجديدة ===== */
+.quick-actions{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:18px;
+}
+.quick-btn{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    border-radius:16px;
+    padding:14px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.25s;
+}
+.quick-btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px #00000010}
+.task-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    align-items:center;
+    margin-top:5px;
+}
+.badge{
+    display:inline-block;
+    padding:4px 8px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:bold;
+}
+.badge.high{background:#fee2e2;color:#b91c1c}
+.badge.medium{background:#fef3c7;color:#92400e}
+.badge.low{background:#dcfce7;color:#166534}
+.badge.subject{background:#e0e7ff;color:#3730a3}
+.task-content{flex:1;min-width:0}
+.task-content span{display:block}
+.empty{
+    text-align:center;
+    color:var(--muted);
+    padding:22px;
+}
+.points-card{
+    background:linear-gradient(135deg,#0f766e,#0891b2);
+    color:#fff;
+    border-radius:22px;
+    padding:24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+.points-number{font-size:42px;font-weight:900}
+.streak{font-size:20px;font-weight:bold}
+.filter-row{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+.filter-row button{
+    border:1px solid var(--border);
+    background:var(--bg);
+    color:var(--text);
+    padding:8px 12px;
+    border-radius:10px;
+    cursor:pointer;
+}
+.filter-row button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.lesson-group{
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid var(--border);
+}
+@media(max-width:900px){
+    .quick-actions{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+    .quick-actions{grid-template-columns:1fr 1fr}
+    .points-card{flex-direction:column;text-align:center}
+}
+
+
+/* ===== Relax Nature Corner ===== */
+.relax-section{margin-top:28px}
+.relax-wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:20px}
+.relax-card{background:var(--card,#fff);border:1px solid var(--border,#e5e7eb);border-radius:24px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.relax-photo{position:relative;overflow:hidden;border-radius:20px;min-height:360px;background:#dfeee3}
+.relax-photo img{width:100%;height:360px;object-fit:cover;display:block;transition:opacity .3s ease,transform .5s ease}
+.relax-photo:hover img{transform:scale(1.02)}
+.relax-overlay{position:absolute;inset:auto 0 0 0;padding:35px 20px 18px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff}
+.relax-overlay h3{margin:0 0 5px;font-size:22px}
+.relax-overlay p{margin:0;opacity:.9}
+.relax-side h3{margin-top:0}
+.relax-tip{padding:14px;border-radius:16px;background:rgba(46,125,50,.1);margin:14px 0;line-height:1.7}
+.relax-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.relax-btn{border:0;border-radius:14px;padding:12px 16px;cursor:pointer;font-weight:700;font-family:inherit}
+.relax-btn.primary{background:var(--primary,#2563eb);color:#fff}
+.relax-btn.secondary{background:rgba(100,116,139,.12);color:inherit}
+.relax-timer{font-size:42px;font-weight:800;text-align:center;margin:20px 0 8px}
+.relax-timer-label{text-align:center;opacity:.75}
+.relax-progress{height:9px;background:rgba(100,116,139,.15);border-radius:99px;overflow:hidden;margin-top:16px}
+.relax-progress span{display:block;height:100%;width:100%;background:var(--primary,#2563eb);transition:width 1s linear}
+@media(max-width:850px){.relax-wrap{grid-template-columns:1fr}.relax-photo,.relax-photo img{min-height:260px;height:260px}}
+
+
+/* ===== Quran / Study With Me / My Platforms ===== */
+.media-section{margin-top:28px}
+.media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.media-card{background:var(--card,#fff);border:1px solid var(--border,#e5e7eb);border-radius:24px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.media-head{display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.media-head .big-icon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(37,99,235,.1);font-size:25px}
+.media-head h3{margin:0;font-size:21px}
+.media-head p{margin:4px 0 0;opacity:.7;font-size:13px}
+.quran-player{padding:16px;border-radius:18px;background:rgba(34,197,94,.08)}
+.quran-player select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--border,#e5e7eb);background:var(--card,#fff);color:inherit;font-family:inherit}
+.quran-audio{width:100%;margin-top:13px}
+.media-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:13px;padding:11px 15px;background:var(--primary,#2563eb);color:#fff;font-weight:700;margin-top:12px}
+.study-video{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:18px;background:#111}
+.study-video iframe{width:100%;height:100%;border:0}
+.platform-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:18px}
+.platform-item{padding:18px;border-radius:19px;background:var(--card,#fff);border:1px solid var(--border,#e5e7eb);transition:.2s}
+.platform-item:hover{transform:translateY(-3px)}
+.platform-icon{font-size:30px;margin-bottom:8px}
+.platform-item h4{margin:0 0 6px;font-size:17px}
+.platform-item p{margin:0;opacity:.72;font-size:13px;line-height:1.6}
+.platform-item a{display:block;text-align:center;margin-top:13px;text-decoration:none;padding:10px;border-radius:11px;background:rgba(37,99,235,.1);color:inherit;font-weight:700}
+.platform-note{margin-top:15px;padding:13px 15px;border-radius:14px;background:rgba(245,158,11,.1);font-size:13px;line-height:1.7}
+@media(max-width:950px){.platform-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.media-grid{grid-template-columns:1fr}.platform-grid{grid-template-columns:1fr}}
+
+
+/* ===== Quran Complete + Dhikr + Entertainment ===== */
+.spiritual-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;margin-top:20px}
+.spiritual-card{background:var(--card,#fff);border:1px solid var(--border,#e5e7eb);border-radius:24px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.quran-cover{min-height:360px;border-radius:20px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;background:linear-gradient(135deg,#0f5132,#1f7a4d 55%,#d4af37);color:#fff;position:relative;overflow:hidden}
+.quran-cover:before{content:"";position:absolute;inset:18px;border:2px solid rgba(255,255,255,.45);border-radius:15px}
+.quran-cover-inner{position:relative;z-index:1}
+.quran-cover .arabic-title{font-size:45px;font-weight:800;margin:10px 0}
+.quran-cover .subtitle{font-size:17px;opacity:.9}
+.spiritual-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.spiritual-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:0;border-radius:13px;padding:12px 16px;background:var(--primary,#2563eb);color:#fff;font-weight:700;cursor:pointer;font-family:inherit}
+.dhikr-card{text-align:center}
+.dhikr-count{font-size:70px;font-weight:900;margin:12px 0}
+.dhikr-name{font-size:25px;font-weight:800}
+.dhikr-sub{opacity:.7;line-height:1.7}
+.dhikr-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:15px}
+.dhikr-btn{border:0;border-radius:14px;padding:13px 20px;font-family:inherit;font-weight:800;cursor:pointer}
+.dhikr-btn.add{background:#16a34a;color:#fff}
+.dhikr-btn.reset{background:rgba(100,116,139,.12);color:inherit}
+.dhikr-switch{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}
+.dhikr-switch button{border:1px solid var(--border,#e5e7eb);background:transparent;color:inherit;border-radius:10px;padding:8px 12px;cursor:pointer;font-family:inherit}
+.fun-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:18px}
+.fun-item{border:1px solid var(--border,#e5e7eb);border-radius:18px;overflow:hidden;background:var(--card,#fff)}
+.fun-item iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.fun-item div{padding:12px;font-weight:700}
+@media(max-width:850px){.spiritual-grid{grid-template-columns:1fr}.fun-grid{grid-template-columns:1fr}}
+
+
+/* ===== Interactive Lecture Quiz ===== */
+.interactive-section{margin-top:28px}
+.interactive-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:20px}
+.interactive-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:20px;box-shadow:0 10px 30px #0000000a}
+.video-wrap{position:relative;aspect-ratio:16/9;background:#111;border-radius:18px;overflow:hidden}
+.video-wrap iframe{width:100%;height:100%;border:0}
+.quiz-controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.quiz-controls input,.quiz-controls select,.quiz-form input,.quiz-form select{border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:11px;padding:10px;font-family:inherit}
+.quiz-controls input{width:110px}
+.quiz-btn{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-family:inherit;font-weight:700}
+.quiz-btn.primary{background:var(--primary);color:#fff}
+.quiz-btn.secondary{background:var(--bg);color:var(--text);border:1px solid var(--border)}
+.quiz-status{margin-top:12px;padding:11px 13px;border-radius:12px;background:rgba(37,99,235,.08);line-height:1.7}
+.quiz-form{display:grid;gap:10px}
+.quiz-form textarea{min-height:80px;resize:vertical;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:11px;padding:10px;font-family:inherit}
+.question-list{display:grid;gap:9px;margin-top:15px}
+.question-item{padding:12px;border-radius:13px;background:var(--bg);border:1px solid var(--border)}
+.question-item small{color:var(--muted)}
+.quiz-modal{position:fixed;inset:0;background:#0f172acc;display:none;align-items:center;justify-content:center;padding:20px;z-index:1000}
+.quiz-modal.show{display:flex}
+.quiz-modal-box{width:min(560px,100%);background:var(--card);color:var(--text);border-radius:24px;padding:25px;box-shadow:0 25px 70px #0008}
+.quiz-modal-box h3{margin-bottom:12px;font-size:23px}
+.quiz-question{font-size:19px;line-height:1.8;margin-bottom:15px}
+.quiz-options{display:grid;gap:10px}
+.quiz-option{border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:13px;padding:12px;text-align:right;cursor:pointer;font-family:inherit}
+.quiz-option:hover{border-color:var(--primary)}
+.quiz-result{margin-top:14px;padding:12px;border-radius:12px;line-height:1.7}
+.quiz-result.correct{background:#dcfce7;color:#166534}
+.quiz-result.wrong{background:#fee2e2;color:#991b1b}
+.quiz-score{font-weight:800;margin-top:10px}
+@media(max-width:850px){.interactive-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🚀 عمار أيمن
+    </div>
+
+    <div class="nav-buttons">
+
+        <button class="nav-btn" onclick="toggleDark()">
+            🌙
+        </button>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>أهلاً يا عمار 👋</h1>
+
+        <p>📚 طالب في تانية بكالوريا</p>
+
+        <p>⚙️ مسار الهندسة</p>
+
+        <p>🎯 هدفك النهارده: تتقدم خطوة جديدة</p>
+
+    </div>
+
+    <div class="student-avatar">
+        👨‍🎓
+    </div>
+
+
+</section>
+
+<div class="quick-actions">
+    <button class="quick-btn" onclick="focusTaskInput()">➕ مهمة سريعة</button>
+    <button class="quick-btn" onclick="focusLessonArea()">📚 إضافة درس</button>
+    <button class="quick-btn" onclick="scrollToSection('timer')">⏱️ ابدأ بومودورو</button>
+    <button class="quick-btn" onclick="newMessage()">💡 حفّزني</button>
+</div>
+
+<!-- STATS -->
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>📊 إحصائياتك</h2>
+
+        <span>استمر في التقدم 🔥</span>
+
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-icon">📝</div>
+
+            <div class="stat-number" id="taskCount">
+                0
+            </div>
+
+            <div class="stat-name">
+                المهام المكتملة
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">📚</div>
+
+            <div class="stat-number" id="lessonCount">
+                0
+            </div>
+
+            <div class="stat-name">
+                الدروس المكتملة
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">🔥</div>
+
+            <div class="stat-number">
+                مستمر
+            </div>
+
+            <div class="stat-name">
+                لا تستسلم
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">🏆</div>
+
+            <div class="stat-number" id="achievementCount">
+                0
+            </div>
+
+            <div class="stat-name">
+                الإنجازات
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SUBJECTS -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>📚 موادي</h2>
+
+        <span>اضغط على المادة لعرض دروسها</span>
+
+    </div>
+
+
+    <div class="subjects">
+
+
+        <div class="subject arabic"
+             onclick="openSubject('العربي')">
+
+            <div class="subject-icon">
+                📖
+            </div>
+
+            <h3>
+                اللغة العربية
+            </h3>
+
+            <p>
+                نحو • قراءة • أدب
+            </p>
+
+            <div class="subject-progress">
+                <div id="arabicProgress"></div>
+            </div>
+
+        </div>
+
+
+        <div class="subject english"
+             onclick="openSubject('الإنجليزي')">
+
+            <div class="subject-icon">
+                🇬🇧
+            </div>
+
+            <h3>
+                اللغة الإنجليزية
+            </h3>
+
+            <p>
+                Grammar • Reading
+            </p>
+
+            <div class="subject-progress">
+                <div id="englishProgress"></div>
+            </div>
+
+        </div>
+
+
+        <div class="subject history"
+             onclick="openSubject('التاريخ')">
+
+            <div class="subject-icon">
+                🏺
+            </div>
+
+            <h3>
+                التاريخ
+            </h3>
+
+            <p>
+                شرح • أسئلة • مقالي
+            </p>
+
+            <div class="subject-progress">
+                <div id="historyProgress"></div>
+            </div>
+
+        </div>
+
+
+        <div class="subject programming"
+             onclick="openSubject('البرمجة')">
+
+            <div class="subject-icon">
+                💻
+            </div>
+
+            <h3>
+                البرمجة
+            </h3>
+
+            <p>
+                Programming • AI
+            </p>
+
+            <div class="subject-progress">
+                <div id="programmingProgress"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LESSONS -->
+
+<section
+    id="lessonArea"
+    class="section box lesson-area">
+
+    <div class="section-title">
+
+        <h2 id="subjectTitle">
+            📚 الدروس
+        </h2>
+
+        <button
+            class="close"
+            onclick="closeSubject()">
+            إغلاق ✖
+        </button>
+
+    </div>
+
+
+    <div class="add-area">
+
+        <input
+            id="lessonInput"
+            type="text"
+            placeholder="اكتب اسم الدرس...">
+
+        <button
+            class="primary-btn"
+            onclick="addLesson()">
+
+            ➕ إضافة درس
+
+        </button>
+
+    </div>
+
+
+    <div id="lessonsList"></div>
+
+</section>
+
+
+<!-- TASKS -->
+
+<section class="section box">
+
+    <div class="section-title">
+
+        <h2>📝 مهامك</h2>
+
+        <span>أنجز المطلوب منك</span>
+
+    </div>
+
+
+    <div class="add-area">
+
+        <input
+            id="taskInput"
+            type="text"
+            placeholder="مثال: حل 30 سؤال تاريخ">
+
+        <button
+            class="primary-btn"
+            onclick="addTask()">
+
+            ➕ إضافة مهمة
+
+        </button>
+
+    </div>
+
+
+    <div id="tasksList"></div>
+
+</section>
+
+
+<!-- PROGRESS -->
+
+<section class="section box">
+
+    <div class="section-title">
+
+        <h2>🎯 تقدمك</h2>
+
+        <span>كل خطوة بتفرق</span>
+
+    </div>
+
+
+    <div class="progress-box">
+
+        <div>
+
+            <h3>
+                نسبة إنجاز المهام
+            </h3>
+
+            <div class="progress-big">
+
+                <div id="overallProgress"></div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="progress-number"
+            id="progressNumber">
+
+            0%
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- POINTS -->
+<section class="section">
+    <div class="points-card">
+        <div>
+            <div class="streak">🔥 سلسلة المذاكرة: <span id="streakCount">0</span> يوم</div>
+            <p style="margin-top:8px;opacity:.9">كل مهمة أو درس مكتمل = نقطة إضافية 💪</p>
+        </div>
+        <div>
+            <div style="font-size:13px;opacity:.85">نقاطك</div>
+            <div class="points-number" id="pointsCount">0</div>
+        </div>
+    </div>
+</section>
+
+<!-- MOTIVATION -->
+
+<section class="section">
+
+    <div class="motivation">
+
+        <h2>
+            🔥 رسالة ليك يا عمار
+        </h2>
+
+        <p id="motivationText">
+
+            أنت قادر بإذن الله 💪
+
+        </p>
+
+        <button onclick="newMessage()">
+
+            🔄 رسالة جديدة
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- TIMER -->
+
+<section class="section box timer">
+
+    <div class="section-title">
+
+        <h2>⏱️ مؤقت المذاكرة</h2>
+
+        <span>ركز في وقتك</span>
+
+    </div>
+
+
+    <div
+        class="timer-circle"
+        id="timer">
+
+        25:00
+
+    </div>
+
+
+    <div class="timer-buttons">
+
+        <button onclick="startTimer()">
+            ▶️ ابدأ
+        </button>
+
+        <button onclick="pauseTimer()">
+            ⏸️ إيقاف
+        </button>
+
+        <button onclick="resetTimer()">
+            🔄 إعادة
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ACHIEVEMENTS -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>🏆 إنجازاتك</h2>
+
+        <span>اجمع الإنجازات</span>
+
+    </div>
+
+
+    <div class="achievements">
+
+
+        <div
+            class="achievement locked"
+            id="achievement1">
+
+            <div class="achievement-icon">
+                🌟
+            </div>
+
+            <h3>
+                أول مهمة
+            </h3>
+
+            <p>
+                أكمل أول مهمة
+            </p>
+
+        </div>
+
+
+        <div
+            class="achievement locked"
+            id="achievement2">
+
+            <div class="achievement-icon">
+                📚
+            </div>
+
+            <h3>
+                طالب مجتهد
+            </h3>
+
+            <p>
+                أكمل 5 دروس
+            </p>
+
+        </div>
+
+
+        <div
+            class="achievement locked"
+            id="achievement3">
+
+            <div class="achievement-icon">
+                🏆
+            </div>
+
+            <h3>
+                بطل المذاكرة
+            </h3>
+
+            <p>
+                أكمل 10 مهام
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+
+<!-- ===== محاضرات تفاعلية ===== -->
+<section id="interactiveLecture" class="section interactive-section">
+  <div class="section-title">
+    <span class="section-icon">🎓</span>
+    <div>
+      <h2>محاضرتي التفاعلية</h2>
+      <p>اتفرج من جوه المنصة، وخلي الفيديو يوقف ويسألك على اللي اتشرح.</p>
+    </div>
+  </div>
+
+  <div class="interactive-grid">
+    <div class="interactive-card">
+      <div class="video-wrap">
+        <div id="lecturePlayer"></div>
+      </div>
+
+      <div class="quiz-controls">
+        <input id="lectureUrl" type="text"
+               value="https://www.youtube.com/watch?v=ZEbCz7B2-Eg"
+               placeholder="رابط فيديو YouTube">
+        <button class="quiz-btn primary" onclick="loadLecture()">▶️ تحميل المحاضرة</button>
+      </div>
+
+      <div class="quiz-controls">
+        <label style="display:flex;align-items:center;gap:7px">
+          <span>سؤال تلقائي كل</span>
+          <select id="autoQuizInterval">
+            <option value="0">إيقاف</option>
+            <option value="300">5 دقائق</option>
+            <option value="600" selected>10 دقائق</option>
+            <option value="900">15 دقيقة</option>
+          </select>
+        </label>
+        <button class="quiz-btn secondary" onclick="applyQuizSettings()">💾 حفظ إعدادات الأسئلة</button>
+      </div>
+
+      <div id="quizStatus" class="quiz-status">
+        جاهز. شغّل المحاضرة، والمنصة هتوقفها وتسألك حسب الإعدادات.
+      </div>
+    </div>
+
+    <div class="interactive-card">
+      <h3 style="margin-bottom:8px">📝 أسئلة عند نقاط محددة</h3>
+      <p style="color:var(--muted);line-height:1.7">
+        حدد الدقيقة والثانية، واكتب السؤال والاختيارات. لما الفيديو يوصل للنقطة دي هيتوقف ويسألك.
+      </p>
+
+      <div class="quiz-form" style="margin-top:14px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input id="manualMinute" type="number" min="0" value="5" placeholder="الدقيقة">
+          <input id="manualSecond" type="number" min="0" max="59" value="0" placeholder="الثانية">
+        </div>
+        <textarea id="manualQuestion" placeholder="اكتب السؤال..."></textarea>
+        <input id="manualOption1" type="text" placeholder="الاختيار الأول">
+        <input id="manualOption2" type="text" placeholder="الاختيار الثاني">
+        <input id="manualOption3" type="text" placeholder="الاختيار الثالث">
+        <input id="manualOption4" type="text" placeholder="الاختيار الرابع">
+
+        <select id="manualCorrect">
+          <option value="0">الإجابة الصحيحة: الأول</option>
+          <option value="1">الإجابة الصحيحة: الثاني</option>
+          <option value="2">الإجابة الصحيحة: الثالث</option>
+          <option value="3">الإجابة الصحيحة: الرابع</option>
+        </select>
+
+        <button class="quiz-btn primary" onclick="addManualQuestion()">➕ إضافة السؤال</button>
+      </div>
+
+      <div id="manualQuestionsList" class="question-list"></div>
+    </div>
+  </div>
+</section>
+
+<div id="quizModal" class="quiz-modal">
+  <div class="quiz-modal-box">
+    <h3>🧠 وقفنا هنا... وريني فهمت إيه!</h3>
+    <div id="quizQuestionText" class="quiz-question"></div>
+    <div id="quizOptions" class="quiz-options"></div>
+    <div id="quizResult"></div>
+    <div id="quizScore" class="quiz-score"></div>
+    <button id="continueLectureBtn" class="quiz-btn primary" style="display:none;margin-top:14px;width:100%" onclick="continueLecture()">▶️ كمّل المحاضرة</button>
+  </div>
+</div>
+
+<footer>
+
+    <p>
+        💙 عمار أيمن | طالب في تانية بكالوريا
+    </p>
+
+    <p>
+        ذاكر • اجتهد • توكل على الله 🤲
+    </p>
+
+
+<!-- ===== ركن الراحة ===== -->
+
+<section id="customTimer" class="section" style="margin-top:28px">
+  <div class="section-title">
+    <span class="section-icon">⏱️</span>
+    <div><h2>المؤقت</h2><p>اختار مدة المذاكرة بنفسك.</p></div>
+  </div>
+  <div class="media-card" style="text-align:center">
+    <div id="timerDisplay" style="font-size:64px;font-weight:900">25:00</div>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:15px 0">
+      <input id="timerHours" type="number" min="0" max="99" value="0" placeholder="ساعات" style="width:80px;padding:10px">
+      <input id="timerMinutes" type="number" min="0" max="59" value="25" placeholder="دقائق" style="width:80px;padding:10px">
+      <input id="timerSeconds" type="number" min="0" max="59" value="0" placeholder="ثواني" style="width:80px;padding:10px">
+    </div>
+    <button onclick="setCustomTimer()" class="btn">⏱️ ضبط الوقت</button>
+    <button onclick="setQuickTimer(25)" class="btn">25 دقيقة</button>
+    <button onclick="setQuickTimer(50)" class="btn">50 دقيقة</button>
+    <button onclick="setQuickTimer(90)" class="btn">90 دقيقة</button>
+  </div>
+</section>
+
+<section id="relax" class="section relax-section">
+  <div class="section-title">
+    <span class="section-icon">🌿</span>
+    <div>
+      <h2>ركن الراحة</h2>
+      <p>خد استراحة قصيرة مع مناظر طبيعية جميلة، وبعدها ارجع لمذاكرتك 💚</p>
+    </div>
+  </div>
+
+  <div class="relax-wrap">
+    <div class="relax-card">
+      <div class="relax-photo">
+        <img id="relaxImage"
+             src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85"
+             alt="منظر طبيعي">
+        <div class="relax-overlay">
+          <h3 id="relaxTitle">جبال وسماء</h3>
+          <p id="relaxCaption">دقيقة هدوء... وبعدين نرجع نكسر الدنيا في المذاكرة 💪</p>
+        </div>
+      </div>
+      <div class="relax-actions">
+        <button class="relax-btn primary" onclick="nextRelaxImage()">🌄 صورة تانية</button>
+        <button class="relax-btn secondary" onclick="startRelaxTimer()">⏱️ ابدأ راحة 5 دقائق</button>
+        <button class="relax-btn secondary" onclick="stopRelaxTimer()">⏹️ إنهاء الراحة</button>
+      </div>
+    </div>
+
+    <div class="relax-card relax-side">
+      <h3>🧘 استراحة سريعة</h3>
+      <div class="relax-tip">
+        <strong>قاعدة الركن:</strong><br>
+        استمتع بالمنظر، خد نفس عميق، واشرب شوية مياه، وبعدها ارجع للمذاكرة.
+      </div>
+
+      <div class="relax-timer" id="relaxTimer">05:00</div>
+      <div class="relax-timer-label" id="relaxStatus">الراحة مش شغالة</div>
+      <div class="relax-progress"><span id="relaxProgress"></span></div>
+
+      <div class="relax-tip" style="margin-top:18px">
+        🌱 <strong>تذكير:</strong> الراحة هدفها تشحن طاقتك، مش تفتح باب للتشتت.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== القرآن + Study With Me + منصاتي ===== -->
+<section id="media" class="section media-section">
+  <div class="section-title">
+    <span class="section-icon">🎧</span>
+    <div>
+      <h2>ركن التركيز</h2>
+      <p>قرآن للاستماع + Study With Me + كل منصات المدرسين في مكان واحد.</p>
+    </div>
+  </div>
+
+  <div class="media-grid">
+    <div class="media-card">
+      <div class="media-head">
+        <div class="big-icon">📖</div>
+        <div>
+          <h3>صوت القرآن</h3>
+          <p>اختار القارئ واستمع أثناء المذاكرة أو الراحة.</p>
+        </div>
+      </div>
+
+      <div class="quran-player">
+        <select id="quranReader" onchange="changeQuranReader()">
+          <option value="https://www.youtube.com/watch?v=8SLO0RqIN4Y">🎙️ حسين العزام — تلاوات مجمعة</option>
+          <option value="https://www.youtube.com/watch?v=Rrc67IOSwkU">🌿 حسين العزام — 3 ساعات من التلاوات</option>
+          <option value="https://open.spotify.com/episode/2oJKqrOPNcmYllvTVpt7tC">📖 سورة مريم — حسين العزام</option>
+        </select>
+
+        <div class="study-video" style="margin-top:13px">
+          <iframe
+            src="https://www.youtube.com/embed/8SLO0RqIN4Y?rel=0"
+            title="تلاوات مجمعة للقارئ حسين العزام"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <a class="media-link" id="quranOpen" href="https://www.youtube.com/watch?v=8SLO0RqIN4Y" target="_blank" rel="noopener">
+          🎧 افتح تلاوة حسين العزام
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <div class="media-head">
+        <div class="big-icon">📚</div>
+        <div>
+          <h3>Study With Me</h3>
+          <p>جلسة هادئة 50/10 بدون كلام أو موسيقى.</p>
+        </div>
+      </div>
+
+      <div class="study-video">
+        <iframe
+          src="https://www.youtube.com/embed/ZEbCz7B2-Eg?rel=0"
+          title="Study With Me"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="platform-note">
+        ⏱️ النظام: <strong>50 دقيقة مذاكرة + 10 دقائق راحة</strong>، وتقدر تستخدمه مع مؤقت المنصة.
+      </div>
+    </div>
+  </div>
+
+  <div class="media-card" style="margin-top:20px">
+    <div class="media-head">
+      <div class="big-icon">🎓</div>
+      <div>
+        <h3>منصاتي</h3>
+        <p>كل المدرسين اللي بتذاكر معاهم في مكان واحد.</p>
+      </div>
+    </div>
+
+    <div class="platform-grid">
+      <div class="platform-item">
+        <div class="platform-icon">🏛️</div>
+        <h4>مستر أحمد عادل</h4>
+        <p>التاريخ — منصة «كلام مؤرخين».</p>
+        <a href="https://www.mr-ahmed-adel.com/" target="_blank" rel="noopener">فتح المنصة ↗</a>
+      </div>
+
+      <div class="platform-item">
+        <div class="platform-icon">📘</div>
+        <h4>كشنر</h4>
+        <p>منصة المدرس — أضف رابطها هنا لو عندك الرابط المباشر.</p>
+        <a href="#" onclick="alert('حط رابط منصة كشنر المباشر في الكود مكان الرابط ده.');return false;">إضافة الرابط</a>
+      </div>
+
+      <div class="platform-item">
+        <div class="platform-icon">🇬🇧</div>
+        <h4>إنجلشاوي</h4>
+        <p>الإنجليزي — منصة Englishawy للثانوية والبكالوريا.</p>
+        <a href="https://www.mrenglishawy.com/" target="_blank" rel="noopener">فتح المنصة ↗</a>
+      </div>
+
+      <div class="platform-item">
+        <div class="platform-icon">💻</div>
+        <h4>م. كمال المراكبي</h4>
+        <p>البرمجة والذكاء الاصطناعي — تانية بكالوريا.</p>
+        <a href="https://www.kamalelmarakby.com/" target="_blank" rel="noopener">فتح المنصة ↗</a>
+      </div>
+    </div>
+
+    <div class="platform-note">
+      💡 كده بدل ما تفتح مواقع كتير وتدخل في التشتت، تدخل «منصاتي» وتختار المدرس مباشرة.
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== القرآن الكامل + الأذكار + الترفيه ===== -->
+<section id="spiritual" class="section media-section">
+  <div class="section-title">
+    <span class="section-icon">🕌</span>
+    <div>
+      <h2>ركني الإيماني</h2>
+      <p>القرآن كامل، التسبيح والاستغفار، وبعدها ترفيه هادئ ومختار.</p>
+    </div>
+  </div>
+
+  <div class="spiritual-grid">
+    <div class="spiritual-card">
+      <div class="quran-cover">
+        <div class="quran-cover-inner">
+          <div style="font-size:24px">﷽</div>
+          <div class="arabic-title">القرآن الكريم</div>
+          <div class="subtitle">تلاوة • قراءة • تدبر</div>
+          <div style="margin-top:18px;font-size:15px">«وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا»</div>
+        </div>
+      </div>
+      <div class="spiritual-buttons">
+        <a class="spiritual-btn" href="https://quran.com/ar" target="_blank" rel="noopener">📖 قراءة القرآن كاملًا</a>
+        <a class="spiritual-btn" href="https://quran.com/ar/reciters" target="_blank" rel="noopener">🎧 التلاوات والقراء</a>
+      </div>
+    </div>
+
+    <div class="spiritual-card dhikr-card">
+      <div style="font-size:38px">📿</div>
+      <h3 style="margin:8px 0">سبّح واستغفر</h3>
+      <div class="dhikr-name" id="dhikrName">سبحان الله</div>
+      <div class="dhikr-count" id="dhikrCount">0</div>
+      <div class="dhikr-sub">اضغط على الزر مع كل تسبيحة، والعداد محفوظ على جهازك.</div>
+
+      <div class="dhikr-controls">
+        <button class="dhikr-btn add" onclick="addDhikr()">📿 تسبيحة</button>
+        <button class="dhikr-btn reset" onclick="resetDhikr()">إعادة</button>
+      </div>
+
+      <div class="dhikr-switch">
+        <button onclick="setDhikr('سبحان الله')">سبحان الله</button>
+        <button onclick="setDhikr('أستغفر الله')">أستغفر الله</button>
+        <button onclick="setDhikr('الله أكبر')">الله أكبر</button>
+        <button onclick="setDhikr('الحمد لله')">الحمد لله</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="spiritual-card" style="margin-top:20px">
+    <div class="media-head">
+      <div class="big-icon">🎬</div>
+      <div>
+        <h3>ركن الترفيه الهادف</h3>
+        <p>فيديوهات مختارة من القناة الرسمية للشيخ محمد أبو بكر.</p>
+      </div>
+    </div>
+
+    <div class="fun-grid">
+      <div class="fun-item">
+        <iframe src="https://www.youtube.com/embed/Og8Ge-SdazY?rel=0" title="محمد أبو بكر" loading="lazy" allowfullscreen></iframe>
+        <div>🎥 فيديو هادف من القناة الرسمية</div>
+      </div>
+      <div class="fun-item">
+        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=mohamedabobakrofficial" title="فيديوهات محمد أبو بكر" loading="lazy" allowfullscreen></iframe>
+        <div>▶️ فيديوهات القناة الرسمية</div>
+      </div>
+      <div class="fun-item">
+        <a class="spiritual-btn" style="margin:18px" href="https://www.youtube.com/@mohamedabobakrofficial" target="_blank" rel="noopener">
+          📺 فتح قناة محمد أبو بكر الرسمية
+        </a>
+        <div>اختار فيديو قصير وخد راحتك، ثم ارجع للمذاكرة.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</footer>
+
+
+<script>
+
+
+/* =========================
+   الوضع الليلي
+========================= */
+
+function toggleDark(){
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "darkMode",
+        document.body.classList.contains("dark")
+    );
+
+}
+
+if(
+    localStorage.getItem("darkMode") === "true"
+){
+
+    document.body.classList.add("dark");
+
+}
+
+
+/* =========================
+   TASKS
+========================= */
+
+let tasks = JSON.parse(localStorage.getItem("ammarTasks")) || [];
+let taskFilter = "all";
+
+function saveTasks(){
+    localStorage.setItem("ammarTasks", JSON.stringify(tasks));
+}
+
+function addTask(){
+    const input = document.getElementById("taskInput");
+    const text = input.value.trim();
+    if(!text){
+        alert("اكتب المهمة الأول 😄");
+        input.focus();
+        return;
+    }
+
+    tasks.push({
+        id: Date.now(),
+        text,
+        done:false,
+        priority:document.getElementById("taskPriority").value,
+        subject:document.getElementById("taskSubject").value,
+        created:new Date().toLocaleDateString("ar-EG")
+    });
+
+    input.value="";
+    saveTasks();
+    displayTasks();
+    updateStats();
+}
+
+function filterTasks(type, btn){
+    taskFilter=type;
+    document.querySelectorAll(".filter-row button").forEach(b=>b.classList.remove("active"));
+    if(btn) btn.classList.add("active");
+    displayTasks();
+}
+
+function displayTasks(){
+    const list=document.getElementById("tasksList");
+    list.innerHTML="";
+
+    let visible=tasks.filter(task=>{
+        if(taskFilter==="active") return !task.done;
+        if(taskFilter==="done") return task.done;
+        return true;
+    });
+
+    if(!visible.length){
+        list.innerHTML='<div class="empty">مفيش مهام هنا حاليًا 🎉</div>';
+        updateStats();
+        return;
+    }
+
+    visible.forEach(task=>{
+        const index=tasks.indexOf(task);
+        const div=document.createElement("div");
+        div.className="task "+(task.done?"done":"");
+
+        const priorityName={
+            high:"مهمة جدًا",
+            medium:"متوسطة",
+            low:"خفيفة"
+        }[task.priority] || "متوسطة";
+
+        div.innerHTML=`
+            <input type="checkbox" ${task.done?"checked":""}
+                onchange="toggleTask(${index})">
+            <div class="task-content">
+                <span>${escapeHtml(task.text)}</span>
+                <div class="task-meta">
+                    <small class="badge ${task.priority||"medium"}">${priorityName}</small>
+                    ${task.subject ? `<small class="badge subject">${escapeHtml(task.subject)}</small>` : ""}
+                    <small style="color:var(--muted)">${task.created||""}</small>
+                </div>
+            </div>
+            <button class="delete" onclick="deleteTask(${index})">🗑️</button>
+        `;
+        list.appendChild(div);
+    });
+
+    updateStats();
+}
+
+function toggleTask(index){
+    const wasDone=tasks[index].done;
+    tasks[index].done=!wasDone;
+
+    if(tasks[index].done){
+        updateStudyDay();
+    }
+
+    saveTasks();
+    displayTasks();
+}
+
+function deleteTask(index){
+    if(confirm("تحب تحذف المهمة دي؟")){
+        tasks.splice(index,1);
+        saveTasks();
+        displayTasks();
+    }
+}
+
+function escapeHtml(value){
+    return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+}
+
+/* =========================
+   LESSONS
+========================= */
+
+let lessons =
+JSON.parse(
+    localStorage.getItem("ammarLessons")
+) || {
+
+    "العربي":[],
+    "الإنجليزي":[],
+    "التاريخ":[],
+    "البرمجة":[]
+
+};
+
+
+let currentSubject="";
+
+
+function saveLessons(){
+
+    localStorage.setItem(
+        "ammarLessons",
+        JSON.stringify(lessons)
+    );
+
+}
+
+
+function openSubject(subject){
+
+    currentSubject=subject;
+
+    document
+    .getElementById("lessonArea")
+    .classList.add("active");
+
+    document
+    .getElementById("subjectTitle")
+    .textContent=
+    "📚 دروس "+subject;
+
+    displayLessons();
+
+    document
+    .getElementById("lessonArea")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+function closeSubject(){
+
+    document
+    .getElementById("lessonArea")
+    .classList.remove("active");
+
+}
+
+
+function addLesson(){
+
+    const input =
+    document.getElementById("lessonInput");
+
+    const name =
+    input.value.trim();
+
+    if(!name){
+
+        alert("اكتب اسم الدرس 😄");
+
+        return;
+
+    }
+
+    lessons[currentSubject].push({
+
+        name:name,
+
+        done:false
+
+    });
+
+    input.value="";
+
+    saveLessons();
+
+    displayLessons();
+
+}
+
+
+function displayLessons(){
+
+    const list =
+    document.getElementById("lessonsList");
+
+    list.innerHTML="";
+
+
+    if(!lessons[currentSubject].length){
+        list.innerHTML='<div class="empty">لسه مفيش دروس للمادة دي. أضف أول درس 👇</div>';
+    }
+
+    lessons[currentSubject]
+    .forEach(
+        (lesson,index)=>{
+
+            const div =
+            document.createElement("div");
+
+            div.className =
+            "lesson "+
+            (lesson.done?"done":"");
+
+
+            div.innerHTML=`
+
+                <input
+                    type="checkbox"
+                    ${lesson.done?"checked":""}
+                    onchange="toggleLesson(${index})">
+
+                <span>
+                    ${lesson.name}
+                </span>
+
+                <button
+                    class="delete"
+                    onclick="deleteLesson(${index})">
+
+                    🗑️
+
+                </button>
+
+            `;
+
+            list.appendChild(div);
+
+        }
+    );
+
+    updateSubjectProgress();
+
+    updateStats();
+
+}
+
+
+function toggleLesson(index){
+
+    lessons[currentSubject][index].done =
+    !lessons[currentSubject][index].done;
+
+    if(lessons[currentSubject][index].done){
+        updateStudyDay();
+    }
+
+    saveLessons();
+
+    displayLessons();
+
+}
+
+
+function deleteLesson(index){
+
+    lessons[currentSubject].splice(index,1);
+
+    saveLessons();
+
+    displayLessons();
+
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function getLessonCount(){
+
+    let total=0;
+
+    let done=0;
+
+
+    Object.values(lessons)
+    .forEach(subject=>{
+
+        total+=subject.length;
+
+        done+=
+        subject.filter(
+            lesson=>lesson.done
+        ).length;
+
+    });
+
+
+    return {
+        total,
+        done
+    };
+
+}
+
+
+function updateStats(){
+
+    const completedTasks =
+    tasks.filter(
+        task=>task.done
+    ).length;
+
+
+    const lessonData =
+    getLessonCount();
+
+
+    document
+    .getElementById("taskCount")
+    .textContent=
+    completedTasks;
+
+
+    document
+    .getElementById("lessonCount")
+    .textContent=
+    lessonData.done;
+
+
+    let percentage=0;
+
+
+    if(tasks.length>0){
+
+        percentage=
+        Math.round(
+            completedTasks /
+            tasks.length * 100
+        );
+
+    }
+
+
+    document
+    .getElementById("overallProgress")
+    .style.width=
+    percentage+"%";
+
+
+    document
+    .getElementById("progressNumber")
+    .textContent=
+    percentage+"%";
+
+
+    updateAchievements();
+    updatePoints();
+
+}
+
+
+function updateSubjectProgress(){
+
+    const subjects = {
+
+        "العربي":
+        "arabicProgress",
+
+        "الإنجليزي":
+        "englishProgress",
+
+        "التاريخ":
+        "historyProgress",
+
+        "البرمجة":
+        "programmingProgress"
+
+    };
+
+
+    Object.entries(subjects)
+    .forEach(
+        ([name,id])=>{
+
+            const list =
+            lessons[name] || [];
+
+            let percentage=0;
+
+            if(list.length){
+
+                const done =
+                list.filter(
+                    x=>x.done
+                ).length;
+
+                percentage=
+                Math.round(
+                    done/list.length*100
+                );
+
+            }
+
+            document
+            .getElementById(id)
+            .style.width=
+            percentage+"%";
+
+        }
+    );
+
+}
+
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+function updateAchievements(){
+
+    const completedTasks =
+    tasks.filter(
+        x=>x.done
+    ).length;
+
+
+    const completedLessons =
+    getLessonCount().done;
+
+
+    const achievements=[
+        completedTasks>=1,
+        completedLessons>=5,
+        completedTasks>=10
+    ];
+
+
+    achievements.forEach(
+        (unlocked,index)=>{
+
+            const element =
+            document.getElementById(
+                "achievement"+(index+1)
+            );
+
+
+            if(unlocked){
+
+                element.classList.remove(
+                    "locked"
+                );
+
+            }else{
+
+                element.classList.add(
+                    "locked"
+                );
+
+            }
+
+        }
+    );
+
+
+    document
+    .getElementById("achievementCount")
+    .textContent=
+    achievements.filter(x=>x).length;
+
+}
+
+
+/* =========================
+   POINTS + STREAK
+========================= */
+
+function getPoints(){
+    const taskPoints=tasks.filter(x=>x.done).length;
+    const lessonPoints=getLessonCount().done;
+    return taskPoints+lessonPoints;
+}
+
+function getStudyDays(){
+    return JSON.parse(localStorage.getItem("ammarStudyDays") || "[]");
+}
+
+function updateStudyDay(){
+    const days=getStudyDays();
+    const today=new Date().toISOString().slice(0,10);
+    if(!days.includes(today)){
+        days.push(today);
+        localStorage.setItem("ammarStudyDays",JSON.stringify(days));
+    }
+    updatePoints();
+}
+
+function getStreak(){
+    const days=getStudyDays().sort().reverse();
+    if(!days.length) return 0;
+
+    let streak=0;
+    let cursor=new Date();
+    cursor.setHours(0,0,0,0);
+
+    for(let i=0;i<days.length;i++){
+        const expected=new Date(cursor);
+        expected.setDate(cursor.getDate()-i);
+        const key=expected.toISOString().slice(0,10);
+
+        if(days[i]===key) streak++;
+        else if(i===0 && days[i]===new Date(Date.now()-86400000).toISOString().slice(0,10)) {
+            cursor.setDate(cursor.getDate()-1);
+            i--;
+        } else break;
+    }
+    return streak;
+}
+
+function updatePoints(){
+    const p=document.getElementById("pointsCount");
+    const s=document.getElementById("streakCount");
+    if(p) p.textContent=getPoints();
+    if(s) s.textContent=getStreak();
+}
+
+/* =========================
+   QUICK ACTIONS
+========================= */
+
+function focusTaskInput(){
+    const input=document.getElementById("taskInput");
+    input.scrollIntoView({behavior:"smooth",block:"center"});
+    setTimeout(()=>input.focus(),400);
+}
+
+function focusLessonArea(){
+    const area=document.getElementById("lessonArea");
+    area.classList.add("active");
+    area.scrollIntoView({behavior:"smooth",block:"center"});
+    setTimeout(()=>document.getElementById("lessonInput").focus(),400);
+}
+
+function scrollToSection(id){
+    const el=document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:"smooth",block:"center"});
+    if(id==="timer") startTimer();
+}
+
+/* =========================
+   MOTIVATION
+========================= */
+
+const messages=[
+
+"🔥 شد حيلك يا عمار، كل ساعة مذاكرة بتقربك من هدفك.",
+
+"💪 أنت مش بتذاكر عشان الامتحان بس، أنت بتبني مستقبلك.",
+
+"🚀 خطوة صغيرة كل يوم = فرق كبير في النهاية.",
+
+"🧠 افهم، حل، اغلط، صحح، وكرر... وهتوصل.",
+
+"🏆 تعبك النهارده هو فرحتك يوم النتيجة.",
+
+"📚 متستناش تكون عندك طاقة، ابدأ وهتلاقي الطاقة بتيجي.",
+
+"🎯 ركز في اللي عليك دلوقتي وسيب النتيجة على ربنا.",
+
+"💙 أنت قادر تعدي السنة دي بإذن الله.",
+
+"⚡ متقارنش نفسك بحد، قارن نفسك بعمار بتاع امبارح.",
+
+"📈 حتى لو تقدمت 1% كل يوم، هتتفاجئ أنت وصلت لفين.",
+
+"📝 كل سؤال بتحله النهارده بيقويك لسؤال أصعب بكرة.",
+
+"🔥 لما تحس إنك تعبت، افتكر أنت بدأت ليه.",
+
+"🌟 مستقبلك يستاهل التعب اللي بتبذله دلوقتي.",
+
+"💪 الغلط مش فشل، الغلط فرصة تعرف نقطة ضعفك.",
+
+"🚀 ابدأ دلوقتي، حتى لو مش مستعد 100%.",
+
+"🏅 كل صفحة بتخلصها إنجاز.",
+
+"🔥 الاستمرار أقوى من الحماس.",
+
+"📖 صفحة واحدة أحسن من ولا صفحة.",
+
+"🎯 ركز على مهمتك الحالية.",
+
+"💙 ربنا مش هيضيع تعبك.",
+
+"🔥 عمار، أنت بدأت الطريق، متقفش في النص.",
+
+"🏆 النجاح نتيجة للاستمرار.",
+
+"🤲 اعمل اللي عليك واستعن بربنا وتوكل عليه.",
+
+"🌅 يوم جديد = فرصة جديدة إنك تتحسن.",
+
+"🔥 يلا يا عمار... المهمة الجاية مستنياك!"
+
+];
+
+
+let currentMessage=0;
+
+
+function newMessage(){
+
+    currentMessage++;
+
+    if(
+        currentMessage>=messages.length
+    ){
+
+        currentMessage=0;
+
+    }
+
+
+    document
+    .getElementById("motivationText")
+    .textContent=
+    messages[currentMessage];
+
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+let time=25*60;
+
+let timerInterval=null;
+
+
+function updateTimer(){
+
+    const minutes =
+    Math.floor(time/60);
+
+    const seconds =
+    time%60;
+
+
+    document
+    .getElementById("timer")
+    .textContent=
+    String(minutes).padStart(2,"0")
+    +":"+
+    String(seconds).padStart(2,"0");
+
+}
+
+
+function startTimer(){
+
+    if(timerInterval) return;
+
+
+    timerInterval =
+    setInterval(()=>{
+
+        if(time>0){
+
+            time--;
+
+            updateTimer();
+
+        }else{
+
+            clearInterval(
+                timerInterval
+            );
+
+            timerInterval=null;
+
+            alert(
+                "🎉 خلصت جلسة المذاكرة! أحسنت يا عمار 💪"
+            );
+
+        }
+
+    },1000);
+
+}
+
+
+function pauseTimer(){
+
+    clearInterval(
+        timerInterval
+    );
+
+    timerInterval=null;
+
+}
+
+
+function resetTimer(){
+
+    pauseTimer();
+
+    time=25*60;
+
+    updateTimer();
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+displayTasks();
+
+updateSubjectProgress();
+
+updateStats();
+updatePoints();
+updateTimer();
+
+
+
+document.getElementById("taskInput").addEventListener("keydown",e=>{
+    if(e.key==="Enter") addTask();
+});
+
+document.getElementById("lessonInput").addEventListener("keydown",e=>{
+    if(e.key==="Enter") addLesson();
+});
+</script>
+
+
+<script>
+/* ===== Relax Nature Gallery ===== */
+const relaxImages = [
+  {
+    url:"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85",
+    title:"جبال وسماء",
+    caption:"اهدأ شوية... وبعدها ارجع أقوى."
+  },
+  {
+    url:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85",
+    title:"غابة هادئة",
+    caption:"سيب دماغك ترتاح كام دقيقة 🌿"
+  },
+  {
+    url:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85",
+    title:"بحيرة بين الجبال",
+    caption:"راحة قصيرة = تركيز أحسن."
+  },
+  {
+    url:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85",
+    title:"البحر",
+    caption:"بص على المنظر وخد نفس عميق 🌊"
+  },
+  {
+    url:"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85",
+    title:"طبيعة",
+    caption:"افتكر هدفك وارجع كمل."
+  }
+];
+
+let relaxIndex = 0;
+let relaxSeconds = 300;
+let relaxInterval = null;
+
+function nextRelaxImage(){
+  relaxIndex = (relaxIndex + 1) % relaxImages.length;
+  const item = relaxImages[relaxIndex];
+  const img = document.getElementById("relaxImage");
+  img.style.opacity = "0";
+  setTimeout(()=>{
+    img.src = item.url;
+    img.onload = ()=> img.style.opacity = "1";
+  },180);
+  document.getElementById("relaxTitle").textContent = item.title;
+  document.getElementById("relaxCaption").textContent = item.caption;
+}
+
+function updateRelaxDisplay(){
+  const m = Math.floor(relaxSeconds / 60).toString().padStart(2,"0");
+  const s = (relaxSeconds % 60).toString().padStart(2,"0");
+  document.getElementById("relaxTimer").textContent = `${m}:${s}`;
+  document.getElementById("relaxProgress").style.width = `${(relaxSeconds/300)*100}%`;
+}
+
+function startRelaxTimer(){
+  if(relaxInterval) return;
+  if(relaxSeconds <= 0) relaxSeconds = 300;
+  document.getElementById("relaxStatus").textContent = "استراحة شغالة 🌿";
+  updateRelaxDisplay();
+  relaxInterval = setInterval(()=>{
+    relaxSeconds--;
+    updateRelaxDisplay();
+    if(relaxSeconds <= 0){
+      stopRelaxTimer();
+      document.getElementById("relaxStatus").textContent = "خلصت الراحة — يلا نرجع نذاكر 💪";
+      alert("خلصت الـ 5 دقائق 🌿\nيلا نرجع نكمل مذاكرة!");
+    }
+  },1000);
+}
+
+function stopRelaxTimer(){
+  if(relaxInterval){
+    clearInterval(relaxInterval);
+    relaxInterval = null;
+  }
+  relaxSeconds = 300;
+  updateRelaxDisplay();
+  document.getElementById("relaxStatus").textContent = "الراحة مش شغالة";
+}
+
+updateRelaxDisplay();
+</script>
+
+
+<script>
+function changeQuranReader(){
+  const select = document.getElementById("quranReader");
+  const open = document.getElementById("quranOpen");
+  if(select && open){
+    open.href = select.value;
+  }
+}
+</script>
+
+
+<script>
+/* ===== Dhikr Counter ===== */
+let dhikrCount = Number(localStorage.getItem("ammarDhikrCount") || 0);
+let dhikrName = localStorage.getItem("ammarDhikrName") || "سبحان الله";
+
+function renderDhikr(){
+  const c=document.getElementById("dhikrCount");
+  const n=document.getElementById("dhikrName");
+  if(c)c.textContent=dhikrCount;
+  if(n)n.textContent=dhikrName;
+}
+function addDhikr(){
+  dhikrCount++;
+  localStorage.setItem("ammarDhikrCount",dhikrCount);
+  renderDhikr();
+}
+function resetDhikr(){
+  dhikrCount=0;
+  localStorage.setItem("ammarDhikrCount","0");
+  renderDhikr();
+}
+function setDhikr(name){
+  dhikrName=name;
+  dhikrCount=0;
+  localStorage.setItem("ammarDhikrName",name);
+  localStorage.setItem("ammarDhikrCount","0");
+  renderDhikr();
+}
+renderDhikr();
+</script>
+
+
+<script>
+/* ===== Custom Study Timer ===== */
+(function(){
+  let customTimerInterval = null;
+  let customTotalSeconds = 1500;
+  let customRemainingSeconds = 1500;
+
+  function el(id){ return document.getElementById(id); }
+
+  window.updateCustomTimerDisplay = function(){
+    const d = el("timerDisplay");
+    if(!d) return;
+    const h = Math.floor(customRemainingSeconds / 3600);
+    const m = Math.floor((customRemainingSeconds % 3600) / 60);
+    const s = customRemainingSeconds % 60;
+    d.textContent = h > 0
+      ? `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`
+      : `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+  };
+
+  window.setCustomTimer = function(){
+    const h = Math.max(0, Number(el("timerHours")?.value || 0));
+    const m = Math.max(0, Math.min(59, Number(el("timerMinutes")?.value || 0)));
+    const s = Math.max(0, Math.min(59, Number(el("timerSeconds")?.value || 0)));
+    const total = Math.floor(h)*3600 + Math.floor(m)*60 + Math.floor(s);
+    if(total <= 0){
+      alert("اختار وقت أكبر من صفر.");
+      return;
+    }
+    clearInterval(customTimerInterval);
+    customTimerInterval = null;
+    customTotalSeconds = total;
+    customRemainingSeconds = total;
+    updateCustomTimerDisplay();
+  };
+
+  window.setQuickTimer = function(minutes){
+    clearInterval(customTimerInterval);
+    customTimerInterval = null;
+    customTotalSeconds = minutes * 60;
+    customRemainingSeconds = customTotalSeconds;
+    if(el("timerHours")) el("timerHours").value = Math.floor(minutes/60);
+    if(el("timerMinutes")) el("timerMinutes").value = minutes % 60;
+    if(el("timerSeconds")) el("timerSeconds").value = 0;
+    updateCustomTimerDisplay();
+  };
+
+  window.startCustomTimer = function(){
+    if(customTimerInterval || customRemainingSeconds <= 0) return;
+    customTimerInterval = setInterval(()=>{
+      customRemainingSeconds--;
+      updateCustomTimerDisplay();
+      if(customRemainingSeconds <= 0){
+        clearInterval(customTimerInterval);
+        customTimerInterval = null;
+        alert("خلص وقت المذاكرة ⏰🔥\nخد راحتك شوية وارجع كمل!");
+      }
+    },1000);
+  };
+
+  window.pauseCustomTimer = function(){
+    clearInterval(customTimerInterval);
+    customTimerInterval = null;
+  };
+
+  window.resetCustomTimer = function(){
+    pauseCustomTimer();
+    customRemainingSeconds = customTotalSeconds;
+    updateCustomTimerDisplay();
+  };
+
+  updateCustomTimerDisplay();
+})();
+</script>
+
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+/* ===== Interactive YouTube Lecture Quiz ===== */
+let lecturePlayer = null;
+let lectureReady = false;
+let quizMonitor = null;
+let lastAutoQuizAt = 0;
+let askedQuestionIds = new Set();
+let currentQuiz = null;
+let quizScore = 0;
+let quizAnswered = 0;
+let manualQuestions = JSON.parse(localStorage.getItem("ammarManualLectureQuestions") || "[]");
+
+function getYouTubeId(url){
+  if(!url) return null;
+  const patterns = [
+    /[?&]v=([^&#]+)/,
+    /youtu\.be\/([^?&#]+)/,
+    /youtube\.com\/embed\/([^?&#]+)/
+  ];
+  for(const re of patterns){
+    const m = url.match(re);
+    if(m) return m[1];
+  }
+  return null;
+}
+
+function onYouTubeIframeAPIReady(){
+  lecturePlayer = new YT.Player("lecturePlayer", {
+    videoId: getYouTubeId(document.getElementById("lectureUrl")?.value) || "ZEbCz7B2-Eg",
+    playerVars: {rel:0, modestbranding:1},
+    events:{
+      onReady:()=>{ lectureReady=true; startQuizMonitor(); },
+      onStateChange:(event)=>{
+        if(event.data === YT.PlayerState.PLAYING) startQuizMonitor();
+        else if(event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) stopQuizMonitor();
+      }
+    }
+  });
+}
+
+function loadLecture(){
+  const id = getYouTubeId(document.getElementById("lectureUrl").value.trim());
+  if(!id){
+    alert("حط رابط YouTube صحيح الأول.");
+    return;
+  }
+  if(!lecturePlayer){
+    alert("المشغل لسه بيجهز، استنى ثانية وجرب تاني.");
+    return;
+  }
+  askedQuestionIds = new Set();
+  lastAutoQuizAt = 0;
+  lecturePlayer.loadVideoById(id);
+  document.getElementById("quizStatus").textContent = "تم تحميل المحاضرة. شغّل الفيديو وهنوقفه عند الأسئلة.";
+}
+
+function applyQuizSettings(){
+  askedQuestionIds = new Set();
+  lastAutoQuizAt = 0;
+  const v = Number(document.getElementById("autoQuizInterval").value);
+  document.getElementById("quizStatus").textContent =
+    v ? `الأسئلة التلقائية شغالة كل ${v/60} دقائق.` : "الأسئلة التلقائية متوقفة. الأسئلة المحددة زمنيًا ما زالت شغالة.";
+}
+
+function startQuizMonitor(){
+  stopQuizMonitor();
+  quizMonitor = setInterval(checkLectureQuestions, 1000);
+}
+
+function stopQuizMonitor(){
+  if(quizMonitor){
+    clearInterval(quizMonitor);
+    quizMonitor = null;
+  }
+}
+
+function checkLectureQuestions(){
+  if(!lecturePlayer || !lectureReady || !lecturePlayer.getCurrentTime) return;
+  const state = lecturePlayer.getPlayerState();
+  if(state !== YT.PlayerState.PLAYING) return;
+
+  const t = Math.floor(lecturePlayer.getCurrentTime());
+
+  // أولًا: الأسئلة المحددة عند وقت معين
+  const timed = manualQuestions.find(q =>
+    !askedQuestionIds.has(q.id) &&
+    Math.abs(t - q.time) <= 1
+  );
+  if(timed){
+    askQuiz(timed);
+    return;
+  }
+
+  // ثانيًا: السؤال التلقائي كل 5/10/15 دقيقة
+  const interval = Number(document.getElementById("autoQuizInterval")?.value || 0);
+  if(interval > 0 && t >= interval && t - lastAutoQuizAt >= interval){
+    lastAutoQuizAt = t;
+    const generated = buildAutoQuestion(t);
+    askQuiz(generated);
+  }
+}
+
+function buildAutoQuestion(time){
+  const q = {
+    id:"auto-" + Date.now(),
+    time,
+    question:"🧠 سؤال مراجعة سريع: اكتب في دماغك أهم فكرة اتشرحت في الجزء اللي فات.",
+    options:[
+      "أهم فكرة كانت واضحة عندي",
+      "فاكر جزء منها ومحتاج مراجعة",
+      "مش فاكر وأحتاج أرجع الجزء ده",
+      "لسه محتاج أفهم الشرح من الأول"
+    ],
+    correct:0,
+    explanation:"السؤال ده للتأكد من إنك بتسترجع اللي اتشرح، ومش مجرد بتشاهد الفيديو."
+  };
+  return q;
+}
+
+function askQuiz(q){
+  if(currentQuiz) return;
+  askedQuestionIds.add(q.id);
+  currentQuiz = q;
+  lecturePlayer.pauseVideo();
+
+  document.getElementById("quizQuestionText").textContent = q.question;
+  const options = document.getElementById("quizOptions");
+  const result = document.getElementById("quizResult");
+  const cont = document.getElementById("continueLectureBtn");
+  const score = document.getElementById("quizScore");
+
+  result.innerHTML = "";
+  result.className = "";
+  cont.style.display = "none";
+  score.textContent = `نتيجتك: ${quizScore} / ${quizAnswered}`;
+
+  options.innerHTML = q.options.map((opt,i)=>
+    `<button class="quiz-option" onclick="answerQuiz(${i})">${escapeHtml(opt)}</button>`
+  ).join("");
+
+  document.getElementById("quizModal").classList.add("show");
+  document.getElementById("quizStatus").textContent = "⏸️ الفيديو متوقف مؤقتًا. جاوب على السؤال قبل ما تكمل.";
+}
+
+function answerQuiz(index){
+  if(!currentQuiz) return;
+
+  quizAnswered++;
+  const result = document.getElementById("quizResult");
+  const cont = document.getElementById("continueLectureBtn");
+  const options = document.querySelectorAll(".quiz-option");
+
+  options.forEach(b=>b.disabled=true);
+
+  if(index === currentQuiz.correct){
+    quizScore++;
+    result.className = "quiz-result correct";
+    result.innerHTML = "✅ إجابة صحيحة! أحسنت.<br>" + escapeHtml(currentQuiz.explanation || "");
+  }else{
+    result.className = "quiz-result wrong";
+    const correctText = currentQuiz.options[currentQuiz.correct] || "";
+    result.innerHTML = "❌ مش هي دي الإجابة المختارة.<br>الإجابة الصحيحة: <strong>" +
+      escapeHtml(correctText) + "</strong><br>" +
+      escapeHtml(currentQuiz.explanation || "");
+  }
+
+  document.getElementById("quizScore").textContent = `نتيجتك: ${quizScore} / ${quizAnswered}`;
+  cont.style.display = "block";
+}
+
+function continueLecture(){
+  document.getElementById("quizModal").classList.remove("show");
+  currentQuiz = null;
+  document.getElementById("quizStatus").textContent = "▶️ كمل المحاضرة... وهتوقف تاني عند السؤال الجاي.";
+  if(lecturePlayer) lecturePlayer.playVideo();
+}
+
+function addManualQuestion(){
+  const minute = Math.max(0, Number(document.getElementById("manualMinute").value || 0));
+  const second = Math.max(0, Math.min(59, Number(document.getElementById("manualSecond").value || 0)));
+  const question = document.getElementById("manualQuestion").value.trim();
+  const options = [1,2,3,4].map(i=>document.getElementById("manualOption"+i).value.trim());
+  const correct = Number(document.getElementById("manualCorrect").value);
+
+  if(!question || options.some(x=>!x)){
+    alert("اكتب السؤال والـ 4 اختيارات الأول.");
+    return;
+  }
+
+  const item = {
+    id:"manual-" + Date.now(),
+    time: Math.floor(minute*60 + second),
+    question, options, correct,
+    explanation:"سؤال مضاف يدويًا لمحاضرتك."
+  };
+
+  manualQuestions.push(item);
+  manualQuestions.sort((a,b)=>a.time-b.time);
+  localStorage.setItem("ammarManualLectureQuestions", JSON.stringify(manualQuestions));
+  renderManualQuestions();
+
+  ["manualQuestion","manualOption1","manualOption2","manualOption3","manualOption4"].forEach(id=>{
+    document.getElementById(id).value="";
+  });
+}
+
+function deleteManualQuestion(id){
+  manualQuestions = manualQuestions.filter(q=>q.id !== id);
+  localStorage.setItem("ammarManualLectureQuestions", JSON.stringify(manualQuestions));
+  renderManualQuestions();
+}
+
+function renderManualQuestions(){
+  const list = document.getElementById("manualQuestionsList");
+  if(!list) return;
+
+  if(!manualQuestions.length){
+    list.innerHTML = '<div class="empty">لسه مفيش أسئلة محددة زمنيًا. أضف أول سؤال 👇</div>';
+    return;
+  }
+
+  list.innerHTML = manualQuestions.map(q=>{
+    const m = Math.floor(q.time/60);
+    const sec = q.time%60;
+    return `<div class="question-item">
+      <strong>⏱️ ${String(m).padStart(2,"0")}:${String(sec).padStart(2,"0")}</strong>
+      <div style="margin-top:5px">${escapeHtml(q.question)}</div>
+      <small>الإجابة: ${escapeHtml(q.options[q.correct])}</small>
+      <button class="delete" style="float:left;margin-top:7px" onclick="deleteManualQuestion('${q.id}')">🗑️ حذف</button>
+    </div>`;
+  }).join("");
+}
+
+renderManualQuestions();
+</script>
+
+</body>
+</html>
